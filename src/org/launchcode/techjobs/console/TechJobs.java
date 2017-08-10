@@ -134,7 +134,7 @@ public class TechJobs {
 
                 }
 
-                results += "*****\n";
+                results += "*****\n\n";
 
             }
 
