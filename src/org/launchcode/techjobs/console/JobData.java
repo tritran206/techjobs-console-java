@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -28,6 +29,9 @@ public class JobData {
      * @param field The column to retrieve values from
      * @return List of all of the values of the given field
      */
+
+
+
     public static ArrayList<String> findAll(String field) {
 
         // load data, if not already loaded
@@ -79,6 +83,30 @@ public class JobData {
             if (aValue.contains(value)) {
                 jobs.add(row);
             }
+        }
+
+        return jobs;
+    }
+
+    public static ArrayList<HashMap<String, String>> findByValue(String term) {
+
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+
+        for (HashMap<String, String> job : allJobs) {
+
+
+            for ( String words : job.values()) {
+
+                if (words.toLowerCase().contains(term.toLowerCase())) {
+
+                    jobs.add(job);
+                }
+            }
+
+
         }
 
         return jobs;
